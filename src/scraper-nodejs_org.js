@@ -34,7 +34,7 @@ function wait (time) {
 }
 
 function sourcePackageFrom (shasumData) {
-  const regex = /^(\w{64}) {2}(?:\.\/)?(node-v\d+\.\d+\.\d+(?:(?:-rc\.\d+)|(?:-nightly\d{8}[0-9a-f]{10}))?)\.tar\.gz$/im
+  const regex = /^(\w{64}) {2}(?:\.\/)?(node-v\d+\.\d+\.\d+(?:(?:-rc\.\d+)|(?:-nightly\d{8}[0-9a-f]{10}))?)\.tar\.xz$/im
   const [, shasum, packageName] = regex.exec(shasumData) || []
 
   return { packageName, shasum }
@@ -42,7 +42,7 @@ function sourcePackageFrom (shasumData) {
 
 function binaryPackagesFrom (shasumData) {
   return new IterableRegExp(
-    /^(\w{64}) {2}(?:\.\/)?((?:node-(v\d+\.\d+\.\d+(?:(?:-rc\.\d+)|(?:-nightly\d{8}[0-9a-f]{10}))?))-([^.]{1,10})-([^.]+))\.tar\.gz$/gim
+    /^(\w{64}) {2}(?:\.\/)?((?:node-(v\d+\.\d+\.\d+(?:(?:-rc\.\d+)|(?:-nightly\d{8}[0-9a-f]{10}))?))-([^.]{1,10})-([^.]+))\.tar\.xz$/gim
   )
     .allMatches(shasumData)
     .map(([, shasum, packageName, version, os, arch]) => ({

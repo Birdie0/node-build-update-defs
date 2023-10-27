@@ -6,7 +6,7 @@ class Binary {
   }
 
   get url () {
-    return `${this.baseUri}${this.version}/${this.packageName}.tar.gz`
+    return `${this.baseUri}${this.version}/${this.packageName}.tar.xz`
   }
 
   get downloadUri () {
@@ -25,6 +25,6 @@ module.exports = class NodeDefinition extends Definition {
   }
 
   get url () {
-    return `${this.baseUri}${this.version}/${this.packageName}.tar.gz`
+    return `${this.baseUri}${this.version}/${this.packageName}.tar.xz`
   }
 }

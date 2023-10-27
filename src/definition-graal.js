@@ -3,7 +3,7 @@ const Definition = require('./definition')
 module.exports = class GraalDefinition extends Definition {
   static Binary (definition) {
     return ({ url, sha }) =>
-      url.match(/\.tar\.gz$/)
+      url.match(/\.tar\.xz$/)
         ? {
           platform: this.platformFrom(url),
           downloadUri: `${url}#${sha}`
